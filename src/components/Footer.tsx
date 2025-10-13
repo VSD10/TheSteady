@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex gap-8 text-sm text-gray-600 dark:text-gray-400">
-            <a href="#" className="hover:text-gray-900 dark:hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-gray-900 dark:hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-gray-900 dark:hover:text-white">Contact Us</a>
+            <a href="/terms-of-service" className="hover:text-gray-900 dark:hover:text-white">Terms of Service</a>
+            <a href="/privacy-policy" className="hover:text-gray-900 dark:hover:text-white">Privacy Policy</a>
+            <a href="/contact" className="hover:text-gray-900 dark:hover:text-white">Contact Us</a>
           </div>
 
           <div className="flex gap-4">
@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
 
           <div className="text-sm text-gray-600 dark:text-gray-400">
-            © 2025 FinCoach. All rights reserved
+            © 2025 TheSteady. All rights reserved
           </div>
         </div>
       </div>

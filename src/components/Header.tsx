@@ -22,17 +22,20 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            <a href="#how-it-works" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               How it works
-            </Link>
-            <Link to="/" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            </a>
+            <a href="#who-its-for" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Who it's for
-            </Link>
-            <Link to="/" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+            </a>
+            <a href="#pricing" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Pricing
-            </Link>
+            </a>
             <Link to="/learning-hub" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
               Learning Hub
+            </Link>
+            <Link to="/free-guides" className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+              Free Guides
             </Link>
           </nav>
 
@@ -48,9 +51,14 @@ export default function Header() {
                 <Sun className="w-5 h-5 text-gray-300" />
               )}
             </button>
-            <button className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+            <a
+              href="https://wa.me/ais/1149384277137846?s=5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors"
+            >
               Get started
-            </button>
+            </a>
           </div>
         </div>
       </div>

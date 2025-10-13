@@ -3,7 +3,7 @@
 
 > **An agentic AI financial coach that lives in WhatsApp — built for gig workers, street vendors, freelancers, and the 1.2 billion left out of traditional finance.**
 
-![THESTEADY Demo](https://via.placeholder.com/600x300/2A6F6F/FFFFFF?text=WhatsApp+Demo+-+EARN+1200+%E2%86%92+Save+%E2%82%B930)  
+![THESTEADY Demo](https://wa.me/ais/1149384277137846?s=5) 
 *No app. No bank link. No shame. Just clarity.*
 
 ---
@@ -92,11 +92,13 @@ For users who want deeper guidance:
 
 ## 🚀 Try It Now
 
-1. **Message THESTEADY on WhatsApp**: [+91 XXXXX XXXXX](https://wa.me/XXXXXXXXXX?text=Hi)  
+1. **Message THESTEADY on WhatsApp**: [+91 72007 00290](https://wa.me/ais/1149384277137846?s=5)  
 2. Text: `EARN 500`  
 3. Get your first nudge in seconds!
 
 *(Demo number for hackathon — real integration via WhatsApp Cloud API)*
+
+Visit the live experience: [https://thesteady.netlify.app/](https://thesteady.netlify.app/)
 
 ---
 

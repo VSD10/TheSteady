@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Video, FileText, Award, Clock, Users, Star, ChevronRight, Play, Download, TrendingUp } from 'lucide-react';
 
@@ -76,21 +77,90 @@ export default function LearningHub() {
       title: 'Beginner to Pro',
       steps: 5,
       description: 'Complete journey from financial basics to advanced strategies',
-      color: 'from-blue-500 to-blue-700'
+      color: 'from-blue-500 to-blue-700',
+      modules: [
+        {
+          title: 'Module 1 · Build Your Foundation',
+          summary: 'Create a realistic budget, map income sources, and track day-to-day spending with easy templates.'
+        },
+        {
+          title: 'Module 2 · Master Cash Flow',
+          summary: 'Learn envelope and zero-based budgeting methods to stay on top of irregular earnings.'
+        },
+        {
+          title: 'Module 3 · Crush Debt Wisely',
+          summary: 'Compare snowball vs. avalanche approaches and engineer a debt payoff plan that matches your goals.'
+        },
+        {
+          title: 'Module 4 · Grow Savings',
+          summary: 'Automate emergency funds, set SMART milestones, and optimize short-term saving instruments.'
+        },
+        {
+          title: 'Module 5 · Invest with Confidence',
+          summary: 'Understand mutual funds, index investing, and risk management to build long-term wealth.'
+        }
+      ]
     },
     {
       title: 'Debt Destroyer',
       steps: 4,
       description: 'Comprehensive debt elimination program',
-      color: 'from-red-500 to-red-700'
+      color: 'from-red-500 to-red-700',
+      modules: [
+        {
+          title: 'Module 1 · Debt Health Check',
+          summary: 'Audit every lender, rate, and fee to see the full picture of what you owe.'
+        },
+        {
+          title: 'Module 2 · Negotiation Toolkit',
+          summary: 'Scripts, letters, and strategies to negotiate lower rates and waive penalties.'
+        },
+        {
+          title: 'Module 3 · Repayment Roadmap',
+          summary: 'Prioritize debts with smart sequencing and automate payments to stay on schedule.'
+        },
+        {
+          title: 'Module 4 · Stay Debt-Free',
+          summary: 'Build emergency buffers and spending guardrails to avoid slipping back.'
+        }
+      ]
     },
     {
       title: 'Wealth Builder',
       steps: 6,
       description: 'Build long-term wealth through smart investing',
-      color: 'from-green-500 to-green-700'
+      color: 'from-green-500 to-green-700',
+      modules: [
+        {
+          title: 'Module 1 · Define Your Why',
+          summary: 'Clarify wealth goals, investment horizons, and personal risk comfort.'
+        },
+        {
+          title: 'Module 2 · Investment Basics',
+          summary: 'Decipher equities, debt instruments, and hybrid products in plain language.'
+        },
+        {
+          title: 'Module 3 · Portfolio Blueprint',
+          summary: 'Allocate assets smartly, diversify across instruments, and rebalance with intention.'
+        },
+        {
+          title: 'Module 4 · Automate & Optimise',
+          summary: 'Set up SIPs, automate contributions, and reduce hidden fees that eat returns.'
+        },
+        {
+          title: 'Module 5 · Tax-Savvy Investing',
+          summary: 'Use tax-advantaged accounts and deductions to keep more of what you earn.'
+        },
+        {
+          title: 'Module 6 · Protect Your Growth',
+          summary: 'Plan insurance, contingency funds, and exit strategies for resilient wealth.'
+        }
+      ]
     }
   ];
+
+  const [activePathIndex, setActivePathIndex] = useState(0);
+  const activePath = learningPaths[activePathIndex];
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
@@ -148,7 +218,10 @@ export default function LearningHub() {
             </div>
           </div>
 
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12">Featured Courses</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Upcoming Courses</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-12">
+            Our signature programs are in final polish. Join the waitlist to be first in when they launch.
+          </p>
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {featuredCourses.map((course, index) => (
               <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group">
@@ -158,13 +231,15 @@ export default function LearningHub() {
                   </div>
                 </div>
                 <div className="p-6">
-                  <div className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium mb-3">
-                    {course.category}
+                  <div className="inline-flex items-center gap-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium mb-3">
+                    Upcoming
+                    <span className="text-xs uppercase tracking-wide text-green-700 dark:text-green-300">Launching Soon</span>
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400">
                     {course.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{course.description}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Track: {course.category} · Launch window opening soon.</p>
                   <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
@@ -181,8 +256,11 @@ export default function LearningHub() {
                       <span className="text-gray-900 dark:text-white font-medium">{course.rating}</span>
                       <span className="text-gray-500 dark:text-gray-400 text-sm">({course.students})</span>
                     </div>
-                    <button className="text-green-600 dark:text-green-400 font-medium hover:text-green-700 dark:hover:text-green-300 flex items-center gap-1">
-                      Start <ChevronRight className="w-4 h-4" />
+                    <button
+                      disabled
+                      className="text-green-600 dark:text-green-400 font-medium flex items-center gap-1 cursor-not-allowed opacity-70"
+                    >
+                      Waitlist <ChevronRight className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
@@ -190,24 +268,27 @@ export default function LearningHub() {
             ))}
           </div>
 
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12">Browse by Category</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Browse by Category</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-12">All learning categories are preparing curated lessons—stay tuned for launch details.</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
             {categories.map((category, index) => {
               const Icon = category.icon;
               return (
                 <button
                   key={index}
-                  className="bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-all group text-center"
+                  disabled
+                  className="bg-white dark:bg-gray-800 rounded-xl p-6 hover:shadow-lg transition-all group text-center cursor-not-allowed"
                 >
                   <Icon className="w-8 h-8 text-gray-600 dark:text-gray-300 mx-auto mb-3 group-hover:text-green-600 dark:group-hover:text-green-400" />
                   <h3 className="font-bold text-gray-900 dark:text-white mb-1">{category.name}</h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{category.count} courses</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Launching soon · {category.count} courses planned</p>
                 </button>
               );
             })}
           </div>
 
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12">Recent Videos</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Upcoming Video Lessons</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-12">Short, bingeable lessons are in production. Preview what drops first.</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {recentVideos.map((video, index) => (
               <div key={index} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow group cursor-pointer">
@@ -221,31 +302,57 @@ export default function LearningHub() {
                   <h3 className="font-bold text-gray-900 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400">
                     {video.title}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{video.views} views</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{video.views} learners waiting · Launching soon</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12">Learning Paths</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Learning Paths</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-12">Tap a path to preview the curriculum that will unlock at launch.</p>
           <div className="grid md:grid-cols-3 gap-8">
-            {learningPaths.map((path, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-                <div className={`bg-gradient-to-br ${path.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6`}>
-                  <Award className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{path.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">{path.description}</p>
-                <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
-                  <FileText className="w-4 h-4" />
-                  {path.steps} steps to complete
-                </div>
-                <button className="w-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 text-gray-900 dark:text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2">
-                  Start Path <ChevronRight className="w-4 h-4" />
+            {learningPaths.map((path, index) => {
+              const isActive = index === activePathIndex;
+              return (
+                <button
+                  type="button"
+                  key={index}
+                  onClick={() => setActivePathIndex(index)}
+                  className={`text-left bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg transition-all ${isActive ? 'ring-2 ring-green-500 shadow-xl' : 'hover:shadow-xl'}`}
+                >
+                  <div className={`bg-gradient-to-br ${path.color} w-16 h-16 rounded-xl flex items-center justify-center mb-6`}>
+                    <Award className="w-8 h-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{path.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">{path.description}</p>
+                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-6">
+                    <FileText className="w-4 h-4" />
+                    {path.steps} steps to complete
+                  </div>
+                  <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${isActive ? 'bg-green-600 text-white' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200'}`}>
+                    {isActive ? 'Viewing details' : 'Launching soon'}
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
                 </button>
-              </div>
-            ))}
+              );
+            })}
           </div>
+          {activePath && (
+            <div className="mt-10 bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
+              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">What you will unlock in {activePath.title}</h3>
+              <div className="space-y-4">
+                {activePath.modules.map((module, idx) => (
+                  <div
+                    key={idx}
+                    className="border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-green-500 transition-colors"
+                  >
+                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{module.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-300">{module.summary}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

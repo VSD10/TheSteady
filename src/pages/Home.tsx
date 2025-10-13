@@ -4,6 +4,7 @@ import heroImage from '../images/1.png';
 import budgetBeginnerImage from '../images/2 (2).png';
 import savingsSuperstarImage from '../images/3.png';
 import budgetingTipsImage from '../images/4.png';
+import creditLimitImage from '../images/creditlimit.jpg';
 import personalizedInsightsImage from '../images/bud.avif';
 import gigRidersImage from '../images/GIG.png';
 import vendorsImage from '../images/VENDORS.png';
@@ -39,9 +40,14 @@ export default function Home() {
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
                 Get personalized financial advice right on WhatsApp - just put in your favorite messaging app. We'll help you take control of your finances and achieve your goals.
               </p>
-              <button className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-8 py-3 rounded-lg text-base font-medium transition-colors">
+              <a
+                href="https://wa.me/ais/1149384277137846?s=5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-8 py-3 rounded-lg text-base font-medium transition-colors"
+              >
                 Get started
-              </button>
+              </a>
             </div>
             <div className="rounded-3xl overflow-hidden aspect-square">
               <img 
@@ -61,7 +67,7 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 transition-colors">
-              <div className="rounded-xl h-48 mb-6 overflow-hidden">
+              <div className="rounded-xl h-56 md:h-64 mb-6 overflow-hidden">
                 <img 
                   src={startWithBotImage} 
                   alt="Start with our bot" 
@@ -77,7 +83,7 @@ export default function Home() {
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 transition-colors">
-              <div className="rounded-xl h-48 mb-6 overflow-hidden">
+              <div className="rounded-xl h-56 md:h-64 mb-6 overflow-hidden">
                 <img 
                   src={enterEarningsImage} 
                   alt="Enter your financial data" 
@@ -93,7 +99,7 @@ export default function Home() {
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 transition-colors">
-              <div className="rounded-xl h-48 mb-6 overflow-hidden">
+              <div className="rounded-xl h-56 md:h-64 mb-6 overflow-hidden">
                 <img 
                   src={aiSuggestsImage} 
                   alt="AI suggests & guides" 
@@ -225,11 +231,11 @@ export default function Home() {
                   Learn simple strategies to track and stick to a budget that works for you.
                 </p>
               </div>
-              <div className="w-full md:w-64 h-40 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-600 flex items-center justify-center">
+              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-600 flex items-center justify-center mx-auto">
                 <img 
                   src={budgetingTipsImage} 
                   alt="5 Tips for Better Budgeting" 
-                  className="w-32 h-32 object-contain rounded-full"
+                  className="w-full h-full object-cover"
                 />
               </div>
             </Link>
@@ -243,8 +249,12 @@ export default function Home() {
                   Demystify credit scores and learn what you can do today for better financial opportunities.
                 </p>
               </div>
-              <div className="w-full md:w-64 h-40 bg-gradient-to-br from-orange-200 to-orange-300 dark:from-orange-700 dark:to-orange-900 rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-12 h-12 text-orange-700 dark:text-orange-300" />
+              <div className="w-40 h-40 rounded-full overflow-hidden bg-gray-100 dark:bg-gray-600 flex items-center justify-center mx-auto">
+                <img 
+                  src={creditLimitImage} 
+                  alt="Understanding Credit Limits" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </Link>
           </div>
@@ -260,7 +270,7 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-full mx-auto mb-4 overflow-hidden">
                 <img 
                   src={shareImage} 
                   alt="Share" 
@@ -274,7 +284,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-full mx-auto mb-4 overflow-hidden">
                 <img 
                   src={learnImage} 
                   alt="Learn" 
@@ -288,7 +298,7 @@ export default function Home() {
               </p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-full mx-auto mb-4 overflow-hidden">
                 <img 
                   src={growImage} 
                   alt="Grow" 
@@ -313,7 +323,7 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-4 gap-6 mt-12">
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center shadow-sm">
-              <div className="w-32 h-32 rounded-2xl mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-2xl mx-auto mb-4 overflow-hidden">
                 <img 
                   src={gigRidersImage} 
                   alt="Gig Riders" 
@@ -326,7 +336,7 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center shadow-sm">
-              <div className="w-32 h-32 rounded-2xl mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-2xl mx-auto mb-4 overflow-hidden">
                 <img 
                   src={vendorsImage} 
                   alt="Vendors" 
@@ -339,7 +349,7 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center shadow-sm">
-              <div className="w-32 h-32 rounded-2xl mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-2xl mx-auto mb-4 overflow-hidden">
                 <img 
                   src={freelancersImage} 
                   alt="Freelancers" 
@@ -352,7 +362,7 @@ export default function Home() {
               </p>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 text-center shadow-sm">
-              <div className="w-32 h-32 rounded-2xl mx-auto mb-4 overflow-hidden">
+              <div className="w-40 h-40 rounded-2xl mx-auto mb-4 overflow-hidden">
                 <img 
                   src={olderAdultsImage} 
                   alt="Older Adults" 
@@ -469,10 +479,15 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
             Steady money for<br />unsteady lives.
           </h2>
-          <button className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-medium transition-colors inline-flex items-center gap-2">
+          <a
+            href="https://wa.me/ais/1149384277137846?s=5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-medium transition-colors inline-flex items-center gap-2"
+          >
             <MessageCircle className="w-5 h-5" />
             Chat on WhatsApp
-          </button>
+          </a>
         </div>
       </section>
 
@@ -483,21 +498,24 @@ export default function Home() {
             <div className="w-8 h-8 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
               <div className="text-green-600 dark:text-green-400 text-sm">✓</div>
             </div>
-            <span className="text-gray-600 dark:text-gray-300 text-sm">No sales calling, Ever.</span>
+            <span className="text-gray-1000 dark:text-gray-300 text-sm">No sales calling, Ever.</span>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800">
+      {/* <section className="py-20 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
             Start your financial journey today
           </h2>
-          <button className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-12 py-4 rounded-lg text-lg font-medium transition-colors">
+          <Link
+            to="/free-guides"
+            className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-12 py-4 rounded-lg text-lg font-medium transition-colors"
+          >
             Get started
-          </button>
+          </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

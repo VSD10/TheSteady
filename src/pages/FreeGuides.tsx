@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Coins, TrendingUp, CreditCard, PiggyBank, Wallet, BookOpen, Target, Shield } from 'lucide-react';
 
 export default function FreeGuides() {
@@ -8,7 +9,8 @@ export default function FreeGuides() {
       englishDescription: 'Learn to create and stick to a budget.',
       icon: Coins,
       color: 'from-orange-200 to-orange-300',
-      iconColor: 'text-orange-700'
+      iconColor: 'text-orange-700',
+      slug: 'guide-to-budgeting'
     },
     {
       title: 'Investment Basics',
@@ -16,7 +18,8 @@ export default function FreeGuides() {
       englishDescription: 'Understand the basics of investing.',
       icon: TrendingUp,
       color: 'from-gray-700 to-gray-900',
-      iconColor: 'text-green-400'
+      iconColor: 'text-green-400',
+      slug: 'investment-basics'
     },
     {
       title: 'Debt Management',
@@ -24,7 +27,8 @@ export default function FreeGuides() {
       englishDescription: 'Learn strategies to manage your debt.',
       icon: CreditCard,
       color: 'from-teal-400 to-teal-600',
-      iconColor: 'text-white'
+      iconColor: 'text-white',
+      slug: 'debt-management'
     },
     {
       title: 'Savings Strategies',
@@ -32,7 +36,8 @@ export default function FreeGuides() {
       englishDescription: 'Simple ways to save more money.',
       icon: PiggyBank,
       color: 'from-green-200 to-green-300',
-      iconColor: 'text-green-700'
+      iconColor: 'text-green-700',
+      slug: 'savings-strategies'
     },
     {
       title: 'Understanding Credit Scores',
@@ -40,7 +45,8 @@ export default function FreeGuides() {
       englishDescription: 'What is a credit score and how to improve it.',
       icon: Target,
       color: 'from-blue-200 to-blue-300',
-      iconColor: 'text-blue-700'
+      iconColor: 'text-blue-700',
+      slug: 'understanding-credit-scores'
     },
     {
       title: 'Emergency Fund Planning',
@@ -48,7 +54,8 @@ export default function FreeGuides() {
       englishDescription: 'How to build an emergency fund.',
       icon: Shield,
       color: 'from-purple-200 to-purple-300',
-      iconColor: 'text-purple-700'
+      iconColor: 'text-purple-700',
+      slug: 'emergency-fund-planning'
     },
     {
       title: 'Smart Spending Habits',
@@ -56,7 +63,8 @@ export default function FreeGuides() {
       englishDescription: 'Tips for spending money wisely.',
       icon: Wallet,
       color: 'from-yellow-200 to-yellow-300',
-      iconColor: 'text-yellow-700'
+      iconColor: 'text-yellow-700',
+      slug: 'smart-spending-habits'
     },
     {
       title: 'Financial Goal Setting',
@@ -64,7 +72,8 @@ export default function FreeGuides() {
       englishDescription: 'How to set and achieve financial goals.',
       icon: BookOpen,
       color: 'from-red-200 to-red-300',
-      iconColor: 'text-red-700'
+      iconColor: 'text-red-700',
+      slug: 'financial-goal-setting'
     },
     {
       title: 'Tax Basics',
@@ -72,7 +81,8 @@ export default function FreeGuides() {
       englishDescription: 'Basic information about taxes.',
       icon: BookOpen,
       color: 'from-indigo-200 to-indigo-300',
-      iconColor: 'text-indigo-700'
+      iconColor: 'text-indigo-700',
+      slug: 'tax-basics'
     }
   ];
 
@@ -106,9 +116,10 @@ export default function FreeGuides() {
             {guides.map((guide, index) => {
               const Icon = guide.icon;
               return (
-                <div
+                <Link
                   key={index}
-                  className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group"
+                  to={`/free-guides/${guide.slug}`}
+                  className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow group"
                 >
                   <div className={`bg-gradient-to-br ${guide.color} p-12 h-64 flex items-center justify-center`}>
                     <Icon className={`w-24 h-24 ${guide.iconColor}`} />
@@ -120,7 +131,7 @@ export default function FreeGuides() {
                     <p className="text-gray-700 dark:text-gray-200 mb-1">{guide.description}</p>
                     <p className="text-gray-500 dark:text-gray-400 text-sm">{guide.englishDescription}</p>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -137,9 +148,14 @@ export default function FreeGuides() {
               Chat with our AI financial coach on WhatsApp for free, or upgrade to premium for expert human guidance.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors">
+              <a
+                href="https://wa.me/ais/1149384277137846?s=5"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+              >
                 Chat on WhatsApp
-              </button>
+              </a>
               <button className="bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-900 dark:text-white px-8 py-3 rounded-lg font-medium transition-colors border-2 border-gray-200 dark:border-gray-600">
                 Learn about Premium
               </button>
